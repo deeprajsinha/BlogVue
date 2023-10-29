@@ -1,4 +1,6 @@
-import BlogsPage from "../pages/Blogs.vue";
+import BlogsPage from "../pages/Blog/Blogs.vue";
+import CreateBlogs from "../pages/Blog/CreateBlogs.vue";
+import EditBlogs from "../pages/Blog/EditBlog.vue";
 import LoginPage from "../pages/LoginPage.vue";
 import RegisterPage from "../pages/RegisterPage.vue";
 import NotFoundErrorPage from "../pages/errors/NotFoundErrorPage.vue";
@@ -16,8 +18,24 @@ const routes = [
     name: "blogs",
     meta: {
       auth: true,
-    },
+    }
   },
+  {
+      path: "/create-blog",
+      component: CreateBlogs,
+      name: "create-blog",
+      meta: {
+        auth: true,
+      },
+  },
+  {
+    path: "/edit-blog/:blog_id",
+    component: EditBlogs,
+    name: "edit-blog",
+    meta: {
+      auth: true,
+    },
+},
   {
     path: "/login",
     component: LoginPage,

@@ -1,6 +1,6 @@
 <template>
     <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-        <div class="container py-2">
+        <div class="container-fluid py-2">
             <a href="#" class="navbar-brand">
                 <!-- <span>Toedoe</span> -->
                 <strong>Blogs</strong>
@@ -10,11 +10,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <router-link :to="{ name: 'blogs' }" class="nav-link">Blogs</router-link>
-                    </li>
-                </ul>
+                
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <router-link :to="{ name: 'login' }" class="btn btn-outline-secondary ms-2">Login</router-link>
