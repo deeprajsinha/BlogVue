@@ -5,7 +5,7 @@
                 <div class="card-header py-3">
                     <div class="row">
                         <div class="col-lg-6">
-                            <h3>Create Blog</h3>
+                            <h3>Update Blog</h3>
                         </div>
                         <div class="col-lg-4" style="float: right"></div>
                         <div class="col-lg-2" style="float: right">
