@@ -19,13 +19,66 @@
                         <router-link :to="{ name: 'register' }" class="btn btn-danger ms-2">Register</router-link>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="btn btn-outline-secondary ms-2">Logout</a>
+                        <a @click="handleLogout" class="btn btn-outline-secondary ms-2">Logout</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 </template>
+
+<script>
+import api from "../http/auth";
+import axios from "axios";
+import Swal from 'sweetalert2'
+
+
+export default {
+    data() {
+        return {
+            auth: ''
+        };
+    },
+    computed: {
+
+    },
+    created() {
+        this.auth = localStorage.getItem('auth');
+
+    },
+    methods: {
+        handleLogout() {
+                  
+               
+            Swal.fire({
+                    title: 'See you soon!',
+                    text: "Logout successfully",
+                    icon: 'success',
+                    confirmButtonColor: '#3085d6',
+                    confirmButtonText: 'Ok'
+                    }).then((result) => {
+                    if (result.isConfirmed) {
+                        localStorage.removeItem('token');
+                        localStorage.removeItem('auth');
+                        this.$router.push("/");  
+                    }
+                    })
+            
+            axios.post('http://127.0.0.1:8000/api/auth/logout', {
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": "Bearer " + localStorage.getItem('token'),
+                    },
+                }).then((response) => {
+                    localStorage.removeItem('token');
+                    localStorage.removeItem('auth');
+                    this.$router.push("/");
+
+                })
+        },
+    },
+};
+</script>
 
 <style scoped>
 .nav-link.router-link-active {
